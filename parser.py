@@ -75,7 +75,6 @@ class KremlinParser:
         for date_start, date_end in zip(self.start_dates, self.end_dates):
             self.driver.get(
                 f"http://kremlin.ru/acts/bank/search?force_since={date_start}&force_till={date_end}")
-            # Копируешь то что тебе надо ...
             if 'Искомая комбинация слов нигде не встречается.' in self.driver.page_source:
                 print(f'{date_start} - {date_end} - таких документов нету')
             else:
